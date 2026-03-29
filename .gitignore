@@ -1,0 +1,4 @@
+.agentcompany/design_preview/
+.agentcompany/slide_reference/
+__pycache__/
+*.pyc
