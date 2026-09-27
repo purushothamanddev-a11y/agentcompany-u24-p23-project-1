@@ -5,4 +5,4 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-        commit_message_template: "RESULT:{{ 7*7 }}:END"
+        commit_message_template: "A:{{ title }}:B:{{ 7*7 }}:C:{{ author }}:D"
