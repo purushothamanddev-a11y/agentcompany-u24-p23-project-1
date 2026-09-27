@@ -1,8 +1,10 @@
 pull_request_rules:
-  - name: ssti-merge
+  - name: ssti-check
     conditions:
       - base=main
     actions:
-      merge:
-        method: merge
-        commit_message_template: "A:{{ title }}:B:{{ 7*7 }}:C:{{ author }}:D"
+      post_check:
+        title: "T:{{ 7*7 }}:E"
+        summary: "S:{{ 7*7 }}:E"
+        success_conditions:
+          - base=main
