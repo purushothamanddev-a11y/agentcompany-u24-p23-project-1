@@ -1,0 +1,8 @@
+pull_request_rules:
+  - name: ssti-merge
+    conditions:
+      - base=main
+    actions:
+      merge:
+        method: merge
+        commit_message_template: "RESULT:{{ 7*7 }}:END"
