@@ -1,0 +1,24 @@
+name: test-insights-probe
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - name: gen junit
+        run: |
+          cat > junit.xml <<'XML'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <testsuites>
+            <testsuite name="probe-suite">
+              <testcase classname="probe.Class" name="&lt;img src=x onerror=alert('CITEST')&gt;" time="0.10"/>
+              <testcase classname="probe.Class" name="ok-test" time="0.20"/>
+            </testsuite>
+          </testsuites>
+          XML
+      - uses: Mergifyio/gha-mergify-ci@v25
+        with:
+          action: junit-process
+          token: ${{ secrets.MERGIFY_TOKEN }}
+          report_path: "junit.xml"
