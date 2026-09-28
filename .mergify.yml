@@ -1,32 +1,17 @@
 pull_request_rules:
-  - name: fb-nonexistent
+  - name: lowpriv-trigger
     conditions:
       - base=main
-      - title~=FB1NONEXIST
+      - title~=LOWPRIV
     actions:
       comment:
-        message: "FB1 configured bot_account=nonexistent-user-zzz-99999"
-        bot_account: nonexistent-user-zzz-99999
-  - name: fb-octocat
-    conditions:
-      - base=main
-      - title~=FB2OCTOCAT
-    actions:
-      comment:
-        message: "FB2 configured bot_account=octocat"
-        bot_account: octocat
+        message: "LOWPRIV: comment attributed to configured bot_account (zerohumans)"
+        bot_account: zerohumans
   - name: fb-purush
     conditions:
       - base=main
       - title~=FB3PURUSH
     actions:
       comment:
-        message: "FB3 configured bot_account=purushothamanddev-a11y"
+        message: "FB3 bot_account=purushothamanddev-a11y"
         bot_account: purushothamanddev-a11y
-  - name: fb-none
-    conditions:
-      - base=main
-      - title~=FB4NOBOT
-    actions:
-      comment:
-        message: "FB4 no bot_account set"
