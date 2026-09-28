@@ -1,10 +1,10 @@
 pull_request_rules:
-  - name: reviewprobe
+  - name: ssti-check
     conditions:
       - base=main
-      - title~=REVIEWPROBE
     actions:
-      review:
-        type: APPROVE
-        message: "REVIEWPROBE-FROM-MERGIFY"
-        bot_account: purushothamanddev-a11y
+      post_check:
+        title: "T:{{ check_rule_name }}|{{ check_status }}|{{ 7*7 }}|{{ check_status.__class__ }}:E"
+        summary: "S:{{ check_conditions }}|{{ ''.__class__ }}|{% if 1==1 %}CONTROL{% endif %}"
+        success_conditions:
+          - base=main
