@@ -1,10 +1,32 @@
 pull_request_rules:
-  - name: ssti-check
+  - name: fb-nonexistent
     conditions:
       - base=main
+      - title~=FB1NONEXIST
     actions:
-      post_check:
-        title: "T:{{ check_rule_name }}|{{ check_status }}|{{ 7*7 }}|{{ check_status.__class__ }}:E"
-        summary: "S:{{ check_conditions }}|{{ ''.__class__ }}|{% if 1==1 %}CONTROL{% endif %}"
-        success_conditions:
-          - base=main
+      comment:
+        message: "FB1 configured bot_account=nonexistent-user-zzz-99999"
+        bot_account: nonexistent-user-zzz-99999
+  - name: fb-octocat
+    conditions:
+      - base=main
+      - title~=FB2OCTOCAT
+    actions:
+      comment:
+        message: "FB2 configured bot_account=octocat"
+        bot_account: octocat
+  - name: fb-purush
+    conditions:
+      - base=main
+      - title~=FB3PURUSH
+    actions:
+      comment:
+        message: "FB3 configured bot_account=purushothamanddev-a11y"
+        bot_account: purushothamanddev-a11y
+  - name: fb-none
+    conditions:
+      - base=main
+      - title~=FB4NOBOT
+    actions:
+      comment:
+        message: "FB4 no bot_account set"
