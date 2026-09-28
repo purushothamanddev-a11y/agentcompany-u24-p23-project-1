@@ -1,0 +1,10 @@
+name: <img src=x onerror=alert("CIWF")>
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    name: <img src=x onerror=alert("CIJOB")>
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello-from-ci-probe"
